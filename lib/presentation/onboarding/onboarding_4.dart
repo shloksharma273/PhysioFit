@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:physio_fit/core/common_widgets/next_button.dart';
 import 'package:physio_fit/core/config/theme/app_colors.dart';
 import 'package:physio_fit/core/config/theme/app_images.dart';
+import 'package:physio_fit/presentation/goalsetting/details.dart';
 
 class Onboarding4 extends StatelessWidget {
   const Onboarding4({super.key});
@@ -65,7 +66,14 @@ class Onboarding4 extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: NextButton(
-          function: () {},
+          function: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const Details(),
+              ),
+            );
+          },
         ),
       ),
     );

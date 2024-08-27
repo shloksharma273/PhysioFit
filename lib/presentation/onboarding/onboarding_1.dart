@@ -17,8 +17,7 @@ class Onboarding1 extends StatelessWidget {
             top: 0,
             left: 0,
             right: 0,
-            height: MediaQuery.of(context).size.height *
-                0.5, // Adjust this value to cover the upper half
+            height: MediaQuery.of(context).size.height * 0.5, // Adjust this value to cover the upper half
             child: const Image(
               image: AssetImage(AppImages.introBG1),
               fit: BoxFit
@@ -28,8 +27,7 @@ class Onboarding1 extends StatelessWidget {
 
           // Foreground Content
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.5 +
-                60, // Start below the image
+            top: MediaQuery.of(context).size.height * 0.5 + 60, // Start below the image
             left: 0,
             right: 0,
             child: const Padding(
@@ -54,7 +52,7 @@ class Onboarding1 extends StatelessWidget {
                         fontSize: 18,
                         color: AppColors.grey,
                         fontFamily: "Poppins" // Adjust text color as needed
-                        ),
+                    ),
                     textAlign: TextAlign.left, // Center text
                   ),
                 ],

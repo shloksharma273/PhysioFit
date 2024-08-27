@@ -11,7 +11,7 @@ class AppImages {
   static const String goals2 = '${basePath}Card-goals-2(1).png';
   static const String goals3 = '${basePath}Card-Goals-2goal1.png';
   static const String goals4 = '${basePath}Group.png';
-  static const String login = '${basePath}Vector-Section';
+  static const String login = '${basePath}Vector-Section.png';
 
   static const String workoutFinish = '${basePath}Frame (3).png';
 
