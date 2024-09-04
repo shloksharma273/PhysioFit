@@ -1,5 +1,4 @@
 class AppVectors {
-
   static const String basePath = 'assets/vectors/';
   static const String format = '.svg';
 
@@ -7,4 +6,6 @@ class AppVectors {
   static const String dob = '${basePath}Calendar$format';
   static const String weight = '${basePath}weight-scale 1$format';
   static const String height = '${basePath}Swap$format';
+  static const String options = '${basePath}options$format';
+  static const String physiotherapy = '${basePath}physiotherapy$format';
 }

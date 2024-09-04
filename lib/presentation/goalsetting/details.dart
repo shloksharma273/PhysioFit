@@ -9,18 +9,22 @@ class Details extends StatefulWidget {
   const Details({super.key});
 
   @override
-  _DetailsState createState() => _DetailsState();
+  State<Details> createState() => _DetailsState();
 }
 
 class _DetailsState extends State<Details> {
   String? _selectedGender; // Set to null initially
-  final TextEditingController _nameController = TextEditingController(); // Controller for name TextField
-  final TextEditingController _weightController = TextEditingController(); // Controller for name Weight
-  final TextEditingController _heightController = TextEditingController(); // Controller for name Weight
+  final TextEditingController _nameController =
+      TextEditingController(); // Controller for name TextField
+  final TextEditingController _weightController =
+      TextEditingController(); // Controller for name Weight
+  final TextEditingController _heightController =
+      TextEditingController(); // Controller for name Weight
 
   @override
   void dispose() {
-    _nameController.dispose(); // Dispose the controller when the widget is disposed
+    _nameController
+        .dispose(); // Dispose the controller when the widget is disposed
     super.dispose();
   }
 
@@ -94,13 +98,14 @@ class _DetailsState extends State<Details> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 12,
-                                    color: AppColors.textColor, // Adjust text color as needed
+                                    color: AppColors
+                                        .textColor, // Adjust text color as needed
                                     fontFamily: "Poppins"),
                               ),
                               value: _selectedGender,
                               decoration: InputDecoration(
                                 contentPadding:
-                                const EdgeInsets.symmetric(horizontal: 10),
+                                    const EdgeInsets.symmetric(horizontal: 10),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(
                                       15), // Customize the border radius
@@ -112,7 +117,8 @@ class _DetailsState extends State<Details> {
                                   borderRadius: BorderRadius.circular(
                                       15), // Customize the border radius
                                   borderSide: const BorderSide(
-                                    color: AppColors.textFieldBg, // Change the color as needed
+                                    color: AppColors
+                                        .textFieldBg, // Change the color as needed
                                   ),
                                 ),
                                 filled: true,
@@ -129,7 +135,8 @@ class _DetailsState extends State<Details> {
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 12,
-                                        color: AppColors.textColor, // Adjust text color as needed
+                                        color: AppColors
+                                            .textColor, // Adjust text color as needed
                                         fontFamily: "Poppins"),
                                   ),
                                 );
@@ -139,7 +146,8 @@ class _DetailsState extends State<Details> {
                                   _selectedGender = newValue;
                                 });
                               },
-                              dropdownColor: AppColors.textFieldBg, // Change dropdown background color
+                              dropdownColor: AppColors
+                                  .textFieldBg, // Change dropdown background color
                               icon: const Icon(Icons.arrow_drop_down,
                                   color: AppColors.textColor),
                             ),
@@ -173,18 +181,23 @@ class _DetailsState extends State<Details> {
                           const SizedBox(width: 20),
                           Expanded(
                             child: TextField(
-                              controller: _nameController, // Attach controller to TextField
+                              controller:
+                                  _nameController, // Attach controller to TextField
                               decoration: const InputDecoration(
                                 hintText: 'Enter Your Name',
                                 hintStyle: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 12,
-                                    color: AppColors.textColor, // Adjust text color as needed
-                                    fontFamily: "Poppins"), // Optional: Change hint color
-                                border: InputBorder.none, // Optional: Remove underline border
+                                    color: AppColors
+                                        .textColor, // Adjust text color as needed
+                                    fontFamily:
+                                        "Poppins"), // Optional: Change hint color
+                                border: InputBorder
+                                    .none, // Optional: Remove underline border
                               ),
                               style: const TextStyle(
-                                  color: Colors.white), // Optional: Change text color
+                                  color: Colors
+                                      .white), // Optional: Change text color
                             ),
                           ),
                         ],
@@ -208,23 +221,31 @@ class _DetailsState extends State<Details> {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         children: [
-                          Icon(Icons.monitor_weight_outlined, color: AppColors.iconColor.withOpacity(0.65),
-                            size: 20,),
+                          Icon(
+                            Icons.monitor_weight_outlined,
+                            color: AppColors.iconColor.withOpacity(0.65),
+                            size: 20,
+                          ),
                           const SizedBox(width: 20),
                           Expanded(
                             child: TextField(
-                              controller: _weightController, // Attach controller to TextField
+                              controller:
+                                  _weightController, // Attach controller to TextField
                               decoration: const InputDecoration(
                                 hintText: 'Your Weight',
                                 hintStyle: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 12,
-                                    color: AppColors.textColor, // Adjust text color as needed
-                                    fontFamily: "Poppins"), // Optional: Change hint color
-                                border: InputBorder.none, // Optional: Remove underline border
+                                    color: AppColors
+                                        .textColor, // Adjust text color as needed
+                                    fontFamily:
+                                        "Poppins"), // Optional: Change hint color
+                                border: InputBorder
+                                    .none, // Optional: Remove underline border
                               ),
                               style: const TextStyle(
-                                  color: Colors.white), // Optional: Change text color
+                                  color: Colors
+                                      .white), // Optional: Change text color
                             ),
                           ),
                         ],
@@ -254,18 +275,23 @@ class _DetailsState extends State<Details> {
                           const SizedBox(width: 20),
                           Expanded(
                             child: TextField(
-                              controller: _heightController, // Attach controller to TextField
+                              controller:
+                                  _heightController, // Attach controller to TextField
                               decoration: const InputDecoration(
                                 hintText: 'How Long',
                                 hintStyle: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 12,
-                                    color: AppColors.textColor, // Adjust text color as needed
-                                    fontFamily: "Poppins"), // Optional: Change hint color
-                                border: InputBorder.none, // Optional: Remove underline border
+                                    color: AppColors
+                                        .textColor, // Adjust text color as needed
+                                    fontFamily:
+                                        "Poppins"), // Optional: Change hint color
+                                border: InputBorder
+                                    .none, // Optional: Remove underline border
                               ),
                               style: const TextStyle(
-                                  color: Colors.white), // Optional: Change text color
+                                  color: Colors
+                                      .white), // Optional: Change text color
                             ),
                           ),
                         ],
@@ -278,7 +304,7 @@ class _DetailsState extends State<Details> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: CustomButton(text: "Next", function: (){}),
+                  child: CustomButton(text: "Next", function: () {}),
                 )
               ],
             ),

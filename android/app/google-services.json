@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "142516715335",
+    "firebase_url": "https://physiofit-6de2d-default-rtdb.firebaseio.com",
+    "project_id": "physiofit-6de2d",
+    "storage_bucket": "physiofit-6de2d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142516715335:android:11f365d299ed8df1741662",
+        "android_client_info": {
+          "package_name": "com.example.physio_fit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeo3-om2WvAj-CDFIltyUzxjM3cZNGOmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
