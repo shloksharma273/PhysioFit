@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:physio_fit/core/config/theme/app_colors.dart';
+import 'package:physio_fit/core/config/theme/app_images.dart';
 import 'package:physio_fit/sensor_reading.dart';
 
 import '../../core/common_widgets/custom_appbar.dart';
@@ -22,7 +23,7 @@ class _ElbowScreenState extends State<ElbowScreen> {
     DatabaseReference readingsRef =
         _databaseRef.child('UsersData/$uid/readings');
     return Scaffold(
-      appBar: const CustomAppbar(title: "Elbow Excercise"),
+      appBar: const CustomAppbar(title: "Elbow Exercise"),
       body: StreamBuilder<DatabaseEvent>(
         stream: readingsRef.orderByKey().limitToLast(1).onValue,
         builder: (context, AsyncSnapshot<DatabaseEvent> snapshot) {
@@ -43,19 +44,28 @@ class _ElbowScreenState extends State<ElbowScreen> {
               }
               return Center(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "Kindly Move Your Arm Slowly up to 90 degrees",
+                      "Tie the Band on Your Wrist and Move Your Arm Slowly up to 90 degrees",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 22,
-                          color: AppColors.textColor, // Adjust text color as needed
+                          color: AppColors.black, // Adjust text color as needed
                           fontFamily: "Poppins"),
                       textAlign: TextAlign.center, // Center text
                     ),
+
                     const SizedBox(
-                      height: 8,
+                      height: 40,
                     ),
+
+                    const Image(image: AssetImage(AppImages.shoulder)),
+
+                    const SizedBox(
+                      height: 20,
+                    ),
+
                     Text(
                       'Current Angle: ${latestReading.angle}',
                       style: const TextStyle(
@@ -64,6 +74,11 @@ class _ElbowScreenState extends State<ElbowScreen> {
                         fontFamily: "Poppins"),
 
                     ),
+
+                    const SizedBox(
+                      height: 20,
+                    ),
+
 
                     Text(
                       'Reps $reps',
