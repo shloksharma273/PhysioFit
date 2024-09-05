@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -51,7 +42,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBeo3-om2WvAj-CDFIltyUzxjM3cZNGOmA',
-    appId: '1:142516715335:android:bcd7e0042af13fef741662',
+    appId: '1:142516715335:android:11f365d299ed8df1741662',
     messagingSenderId: '142516715335',
     projectId: 'physiofit-6de2d',
     databaseURL: 'https://physiofit-6de2d-default-rtdb.firebaseio.com',
@@ -67,4 +58,35 @@ class DefaultFirebaseOptions {
     storageBucket: 'physiofit-6de2d.appspot.com',
     iosBundleId: 'com.example.physioFit',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAJFvIYx2tAji39qoL7LwUOuldDsYaiB8Y',
+    appId: '1:142516715335:web:f2e4370dce5101a8741662',
+    messagingSenderId: '142516715335',
+    projectId: 'physiofit-6de2d',
+    authDomain: 'physiofit-6de2d.firebaseapp.com',
+    databaseURL: 'https://physiofit-6de2d-default-rtdb.firebaseio.com',
+    storageBucket: 'physiofit-6de2d.appspot.com',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyD1fkj8ukYq2LbyNre-BBztHqE8Wl61PgU',
+    appId: '1:142516715335:ios:072b98f7b8effa3e741662',
+    messagingSenderId: '142516715335',
+    projectId: 'physiofit-6de2d',
+    databaseURL: 'https://physiofit-6de2d-default-rtdb.firebaseio.com',
+    storageBucket: 'physiofit-6de2d.appspot.com',
+    iosBundleId: 'com.example.physioFit',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAJFvIYx2tAji39qoL7LwUOuldDsYaiB8Y',
+    appId: '1:142516715335:web:3b078bd6071fbecb741662',
+    messagingSenderId: '142516715335',
+    projectId: 'physiofit-6de2d',
+    authDomain: 'physiofit-6de2d.firebaseapp.com',
+    databaseURL: 'https://physiofit-6de2d-default-rtdb.firebaseio.com',
+    storageBucket: 'physiofit-6de2d.appspot.com',
+  );
+
 }
