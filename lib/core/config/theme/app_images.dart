@@ -15,6 +15,10 @@ class AppImages {
 
   static const String workoutFinish = '${basePath}Frame (3).png';
 
+  static const String neck = '${basePath}n.png';
+  static const String shoulder = '${basePath}y.png';
+  static const String knees = '${basePath}x.png';
+
   static const String physiotherapy = '${basePath}Group (1).png';
 
 
