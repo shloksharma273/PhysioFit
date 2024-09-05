@@ -4,6 +4,9 @@ import 'package:physio_fit/core/config/theme/app_colors.dart';
 import 'package:physio_fit/core/config/theme/app_images.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:physio_fit/core/config/theme/app_vectors.dart';
+import 'package:physio_fit/presentation/home%20page/home_page.dart';
+
+import '../home page/profile_page.dart';
 
 class Details extends StatefulWidget {
   const Details({super.key});
@@ -14,7 +17,7 @@ class Details extends StatefulWidget {
 
 class _DetailsState extends State<Details> {
   String? _selectedGender; // Set to null initially
-  final TextEditingController _nameController =
+  final TextEditingController nameController =
       TextEditingController(); // Controller for name TextField
   final TextEditingController _weightController =
       TextEditingController(); // Controller for name Weight
@@ -23,7 +26,7 @@ class _DetailsState extends State<Details> {
 
   @override
   void dispose() {
-    _nameController
+    nameController
         .dispose(); // Dispose the controller when the widget is disposed
     super.dispose();
   }
@@ -182,7 +185,7 @@ class _DetailsState extends State<Details> {
                           Expanded(
                             child: TextField(
                               controller:
-                                  _nameController, // Attach controller to TextField
+                                  nameController, // Attach controller to TextField
                               decoration: const InputDecoration(
                                 hintText: 'Enter Your Name',
                                 hintStyle: TextStyle(
@@ -304,7 +307,16 @@ class _DetailsState extends State<Details> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: CustomButton(text: "Next", function: () {}),
+                  child: CustomButton(
+                      text: "Next",
+                      function: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  HomeScreen(name: nameController.text)),
+                        );
+                      }),
                 )
               ],
             ),
