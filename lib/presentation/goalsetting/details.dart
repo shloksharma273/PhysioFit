@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:physio_fit/core/common_widgets/custom_button.dart';
 import 'package:physio_fit/core/config/theme/app_colors.dart';
 import 'package:physio_fit/core/config/theme/app_images.dart';
+import 'package:physio_fit/presentation/goalsetting/intro_slider.dart';
+import 'package:physio_fit/core/config/theme/globals.dart' as globals; // Import the globals file
+import 'package:flutter/material.dart';
+import 'package:physio_fit/core/common_widgets/custom_button.dart';
+import 'package:physio_fit/core/config/theme/app_colors.dart';
+import 'package:physio_fit/core/config/theme/app_images.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:physio_fit/core/config/theme/app_vectors.dart';
+import 'package:physio_fit/presentation/goalsetting/intro_slider.dart';
 
 class Details extends StatefulWidget {
   const Details({super.key});
@@ -14,16 +21,16 @@ class Details extends StatefulWidget {
 
 class _DetailsState extends State<Details> {
   String? _selectedGender; // Set to null initially
-  final TextEditingController _nameController =
-      TextEditingController(); // Controller for name TextField
+  final TextEditingController nameController =
+  TextEditingController(); // Controller for name TextField
   final TextEditingController _weightController =
-      TextEditingController(); // Controller for name Weight
+  TextEditingController(); // Controller for name Weight
   final TextEditingController _heightController =
-      TextEditingController(); // Controller for name Weight
+  TextEditingController(); // Controller for name Weight
 
   @override
   void dispose() {
-    _nameController
+    nameController
         .dispose(); // Dispose the controller when the widget is disposed
     super.dispose();
   }
@@ -105,7 +112,7 @@ class _DetailsState extends State<Details> {
                               value: _selectedGender,
                               decoration: InputDecoration(
                                 contentPadding:
-                                    const EdgeInsets.symmetric(horizontal: 10),
+                                const EdgeInsets.symmetric(horizontal: 10),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(
                                       15), // Customize the border radius
@@ -182,7 +189,7 @@ class _DetailsState extends State<Details> {
                           Expanded(
                             child: TextField(
                               controller:
-                                  _nameController, // Attach controller to TextField
+                              nameController, // Attach controller to TextField
                               decoration: const InputDecoration(
                                 hintText: 'Enter Your Name',
                                 hintStyle: TextStyle(
@@ -191,7 +198,7 @@ class _DetailsState extends State<Details> {
                                     color: AppColors
                                         .textColor, // Adjust text color as needed
                                     fontFamily:
-                                        "Poppins"), // Optional: Change hint color
+                                    "Poppins"), // Optional: Change hint color
                                 border: InputBorder
                                     .none, // Optional: Remove underline border
                               ),
@@ -230,7 +237,7 @@ class _DetailsState extends State<Details> {
                           Expanded(
                             child: TextField(
                               controller:
-                                  _weightController, // Attach controller to TextField
+                              _weightController, // Attach controller to TextField
                               decoration: const InputDecoration(
                                 hintText: 'Your Weight',
                                 hintStyle: TextStyle(
@@ -239,7 +246,7 @@ class _DetailsState extends State<Details> {
                                     color: AppColors
                                         .textColor, // Adjust text color as needed
                                     fontFamily:
-                                        "Poppins"), // Optional: Change hint color
+                                    "Poppins"), // Optional: Change hint color
                                 border: InputBorder
                                     .none, // Optional: Remove underline border
                               ),
@@ -276,7 +283,7 @@ class _DetailsState extends State<Details> {
                           Expanded(
                             child: TextField(
                               controller:
-                                  _heightController, // Attach controller to TextField
+                              _heightController, // Attach controller to TextField
                               decoration: const InputDecoration(
                                 hintText: 'How Long',
                                 hintStyle: TextStyle(
@@ -285,7 +292,7 @@ class _DetailsState extends State<Details> {
                                     color: AppColors
                                         .textColor, // Adjust text color as needed
                                     fontFamily:
-                                        "Poppins"), // Optional: Change hint color
+                                    "Poppins"), // Optional: Change hint color
                                 border: InputBorder
                                     .none, // Optional: Remove underline border
                               ),
@@ -304,7 +311,14 @@ class _DetailsState extends State<Details> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: CustomButton(text: "Next", function: () {}),
+                  child: CustomButton(text: "Next", function: () {
+                    globals.userName = nameController.text;
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => IntroSlider(),
+                      ),
+                    );
+                  },),
                 )
               ],
             ),
@@ -314,3 +328,4 @@ class _DetailsState extends State<Details> {
     );
   }
 }
+

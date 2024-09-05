@@ -15,6 +15,16 @@
 // Provide the RTDB payload printing info and other helper functions.
 #include "addons/RTDBHelper.h"
 
+const int MPU_addr=0x68;
+int16_t AcX,AcY,AcZ,Tmp,GyX,GyY,GyZ;
+ 
+int minVal=265;
+int maxVal=402;
+ 
+double x;
+double y;
+double z;
+
 // Insert your network credentials
 #define WIFI_SSID "qwertyuiop"
 #define WIFI_PASSWORD "12345678"
@@ -63,6 +73,9 @@ unsigned long timerDelay = 1800; // 3 minutes
 
 // Initialize WiFi
 void initWiFi() {
+
+
+
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("Connecting to WiFi ..");
   while (WiFi.status() != WL_CONNECTED) {
@@ -85,7 +98,12 @@ unsigned long getTime() {
   return now;
 }
 
-void setup(){
+void setup(){ 
+  Wire.begin();
+  Wire.beginTransmission(MPU_addr);
+  Wire.write(0x6B);
+  Wire.write(0);
+  Wire.endTransmission(true);
   Serial.begin(115200);
 
   initWiFi();
@@ -131,6 +149,21 @@ void setup(){
 
 void loop(){
 
+  Wire.beginTransmission(MPU_addr);
+  Wire.write(0x3B);
+  Wire.endTransmission(false);
+  Wire.requestFrom(MPU_addr,14,true);
+  AcX=Wire.read()<<8|Wire.read();
+  AcY=Wire.read()<<8|Wire.read();
+  AcZ=Wire.read()<<8|Wire.read();
+  int xAng = map(AcX,minVal,maxVal,-90,90);
+  int yAng = map(AcY,minVal,maxVal,-90,90);
+  int zAng = map(AcZ,minVal,maxVal,-90,90);
+   
+  x= RAD_TO_DEG * (atan2(-yAng, -zAng)+PI);
+  y= RAD_TO_DEG * (atan2(-xAng, -zAng)+PI);
+  z= RAD_TO_DEG * (atan2(-yAng, -xAng)+PI);
+
   // Send new readings to database
   if (Firebase.ready() && (millis() - sendDataPrevMillis > timerDelay || sendDataPrevMillis == 0)){
     sendDataPrevMillis = millis();
@@ -142,19 +175,24 @@ void loop(){
 
     parentPath = databasePath + "/" + String(timestamp);
 
-    // Generate random data for testing purposes
-    temperature = 0; // Replace with actual sensor data if available
-    angle = random(1, 100); // Generate a random angle between 1 and 100
-    pressure = 2; // Replace with actual sensor data if available
-
-    json.set(tempPath.c_str(), String(temperature));
-    json.set(humPath.c_str(), String(angle));
-    json.set(presPath.c_str(), String(pressure));
+    json.set(tempPath.c_str(), String(x));
+    json.set(humPath.c_str(), String(y));
+    json.set(presPath.c_str(), String(z));
     json.set(timePath, String(timestamp));
     
     // Send JSON data to Firebase
     if (Firebase.RTDB.setJSON(&fbdo, parentPath.c_str(), &json)) {
       Serial.println("Data sent successfully!");
+
+      Serial.print("x: ");
+      Serial.println(x);
+
+      Serial.print("y: ");
+      Serial.println(y);
+
+      Serial.print("z: ");
+      Serial.println(z);
+
     } else {
       Serial.print("Failed to send data: ");
       Serial.println(fbdo.errorReason());
