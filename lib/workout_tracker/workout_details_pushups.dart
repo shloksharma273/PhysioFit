@@ -64,14 +64,14 @@ class WorkoutDetailsPushup extends StatelessWidget {
               ),
               SizedBox(height: 16),
               Text(
-                'Jumping Jack',
+                'Push-Ups',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                'Easy | 390 Calories Burn',
+                'Medium | 390 Calories Burn',
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 16,
