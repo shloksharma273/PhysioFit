@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:physio_fit/presentation/home%20page/profile_page.dart';
+import 'package:physio_fit/presentation/physiotherapy/physiotherapy.dart';
 
 import '../../workout_tracker/fullbody_workout.dart';
 import '../goalsetting/details.dart';
@@ -40,8 +41,10 @@ class _HomeScreenState extends State<HomeScreen> {
         // Add Button Action - can be implemented later
         break;
       case 3:
-        // Open Camera
-        _openCamera();
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Physiotherapy()),
+        );
         break;
       case 4:
         // Navigate to Profile screen
@@ -100,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
         BottomNavigationBarItem(
             icon: Icon(Icons.add_circle_outline), label: 'Add'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.camera_alt_outlined), label: 'Camera'),
+            icon: Icon(Icons.fitness_center_rounded), label: 'Physio'),
         BottomNavigationBarItem(
             icon: Icon(Icons.person_outline), label: 'Profile'),
       ],

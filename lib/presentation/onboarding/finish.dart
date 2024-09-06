@@ -3,11 +3,12 @@ import 'package:physio_fit/core/common_widgets/custom_button.dart';
 import 'package:physio_fit/core/config/theme/app_images.dart';
 import 'package:physio_fit/core/config/theme/globals.dart'
 as globals;
+import 'package:physio_fit/presentation/home%20page/home_page.dart';
 
 import '../../core/config/theme/app_colors.dart'; // Import the globals file
 
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+class FinishPage extends StatelessWidget {
+  const FinishPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +65,7 @@ class WelcomePage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
 
-              CustomButton(text: "Back To Home", function: (){})
+              CustomButton(text: "Back To Home", function: (){},)
             ],
           ),
         ),
