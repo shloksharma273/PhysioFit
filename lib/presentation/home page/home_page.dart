@@ -50,7 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
         // Navigate to Profile screen
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ProfileScreen()),
+          MaterialPageRoute(
+              builder: (context) => ProfileScreen(name: widget.name)),
         );
         break;
     }

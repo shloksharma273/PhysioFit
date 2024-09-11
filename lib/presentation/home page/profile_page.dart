@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
+  final String name; // Declare the name property
+
+  const ProfileScreen({Key? key, required this.name}) : super(key: key);
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -43,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'naam kaise',
+                          name,
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
