@@ -34,294 +34,296 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            height: MediaQuery.of(context).size.height * 0.42,
-            child: const Image(
-              image: AssetImage(AppImages.login),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              height: MediaQuery.of(context).size.height * 0.42,
+              child: const Image(
+                image: AssetImage(AppImages.login),
+              ),
             ),
-          ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.42 + 20,
-            left: 0,
-            right: 0,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  "Let’s complete your profile",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                      color: Colors.black, // Adjust text color as needed
-                      fontFamily: "Poppins"),
-                  textAlign: TextAlign.center, // Center text
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                const Text(
-                  "It will help us to know more about you!",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
-                      color: AppColors.grey, // Adjust text color as needed
-                      fontFamily: "Poppins"),
-                  textAlign: TextAlign.center, // Center text
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.textFieldBg,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    height: 53,
-                    width: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(
-                            AppVectors.gender,
-                          ),
-                          const SizedBox(width: 20),
-                          Expanded(
-                            child: DropdownButtonFormField<String>(
-                              hint: const Text(
-                                "Choose Gender",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                    color: AppColors
-                                        .textColor, // Adjust text color as needed
-                                    fontFamily: "Poppins"),
-                              ),
-                              value: _selectedGender,
-                              decoration: InputDecoration(
-                                contentPadding:
-                                    const EdgeInsets.symmetric(horizontal: 10),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(
-                                      15), // Customize the border radius
-                                  borderSide: const BorderSide(
-                                    color: AppColors.textFieldBg,
-                                  ),
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.42 + 20,
+              left: 0,
+              right: 0,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Let’s complete your profile",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                        color: Colors.black, // Adjust text color as needed
+                        fontFamily: "Poppins"),
+                    textAlign: TextAlign.center, // Center text
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  const Text(
+                    "It will help us to know more about you!",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                        color: AppColors.grey, // Adjust text color as needed
+                        fontFamily: "Poppins"),
+                    textAlign: TextAlign.center, // Center text
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.textFieldBg,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      height: 53,
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              AppVectors.gender,
+                            ),
+                            const SizedBox(width: 20),
+                            Expanded(
+                              child: DropdownButtonFormField<String>(
+                                hint: const Text(
+                                  "Choose Gender",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12,
+                                      color: AppColors
+                                          .textColor, // Adjust text color as needed
+                                      fontFamily: "Poppins"),
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(
-                                      15), // Customize the border radius
-                                  borderSide: const BorderSide(
-                                    color: AppColors
-                                        .textFieldBg, // Change the color as needed
+                                value: _selectedGender,
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 10),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        15), // Customize the border radius
+                                    borderSide: const BorderSide(
+                                      color: AppColors.textFieldBg,
+                                    ),
                                   ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        15), // Customize the border radius
+                                    borderSide: const BorderSide(
+                                      color: AppColors
+                                          .textFieldBg, // Change the color as needed
+                                    ),
+                                  ),
+                                  filled: true,
+                                  fillColor: AppColors.textFieldBg,
                                 ),
-                                filled: true,
-                                fillColor: AppColors.textFieldBg,
+                                items: <String>[
+                                  'Male',
+                                  'Female'
+                                ].map<DropdownMenuItem<String>>((String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(
+                                      value,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                          color: AppColors
+                                              .textColor, // Adjust text color as needed
+                                          fontFamily: "Poppins"),
+                                    ),
+                                  );
+                                }).toList(),
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    _selectedGender = newValue;
+                                  });
+                                },
+                                dropdownColor: AppColors
+                                    .textFieldBg, // Change dropdown background color
+                                icon: const Icon(Icons.arrow_drop_down,
+                                    color: AppColors.textColor),
                               ),
-                              items: <String>[
-                                'Male',
-                                'Female'
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(
-                                    value,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 12,
-                                        color: AppColors
-                                            .textColor, // Adjust text color as needed
-                                        fontFamily: "Poppins"),
-                                  ),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {
-                                setState(() {
-                                  _selectedGender = newValue;
-                                });
-                              },
-                              dropdownColor: AppColors
-                                  .textFieldBg, // Change dropdown background color
-                              icon: const Icon(Icons.arrow_drop_down,
-                                  color: AppColors.textColor),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.textFieldBg,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    height: 53,
-                    width: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.account_circle_outlined,
-                            color: AppColors.iconColor.withOpacity(0.65),
-                            size: 20,
-                          ),
-                          const SizedBox(width: 20),
-                          Expanded(
-                            child: TextField(
-                              controller:
-                                  nameController, // Attach controller to TextField
-                              decoration: const InputDecoration(
-                                hintText: 'Enter Your Name',
-                                hintStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                    color: AppColors
-                                        .textColor, // Adjust text color as needed
-                                    fontFamily:
-                                        "Poppins"), // Optional: Change hint color
-                                border: InputBorder
-                                    .none, // Optional: Remove underline border
-                              ),
-                              style: const TextStyle(
-                                  color: Colors
-                                      .white), // Optional: Change text color
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.textFieldBg,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      height: 53,
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.account_circle_outlined,
+                              color: AppColors.iconColor.withOpacity(0.65),
+                              size: 20,
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: 20),
+                            Expanded(
+                              child: TextField(
+                                controller:
+                                    nameController, // Attach controller to TextField
+                                decoration: const InputDecoration(
+                                  hintText: 'Enter Your Name',
+                                  hintStyle: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12,
+                                      color: AppColors
+                                          .textColor, // Adjust hint color as needed
+                                      fontFamily:
+                                          "Poppins"), // Optional: Change hint color
+                                  border: InputBorder
+                                      .none, // Optional: Remove underline border
+                                ),
+                                style: const TextStyle(
+                                    color: Colors
+                                        .black), // Change text color to black
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.textFieldBg,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    height: 53,
-                    width: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.monitor_weight_outlined,
-                            color: AppColors.iconColor.withOpacity(0.65),
-                            size: 20,
-                          ),
-                          const SizedBox(width: 20),
-                          Expanded(
-                            child: TextField(
-                              controller:
-                                  _weightController, // Attach controller to TextField
-                              decoration: const InputDecoration(
-                                hintText: 'Your Weight',
-                                hintStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                    color: AppColors
-                                        .textColor, // Adjust text color as needed
-                                    fontFamily:
-                                        "Poppins"), // Optional: Change hint color
-                                border: InputBorder
-                                    .none, // Optional: Remove underline border
-                              ),
-                              style: const TextStyle(
-                                  color: Colors
-                                      .white), // Optional: Change text color
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.textFieldBg,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      height: 53,
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.monitor_weight_outlined,
+                              color: AppColors.iconColor.withOpacity(0.65),
+                              size: 20,
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: 20),
+                            Expanded(
+                              child: TextField(
+                                controller:
+                                    _weightController, // Attach controller to TextField
+                                decoration: const InputDecoration(
+                                  hintText: 'Your Weight',
+                                  hintStyle: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12,
+                                      color: AppColors
+                                          .textColor, // Adjust hint color as needed
+                                      fontFamily:
+                                          "Poppins"), // Optional: Change hint color
+                                  border: InputBorder
+                                      .none, // Optional: Remove underline border
+                                ),
+                                style: const TextStyle(
+                                    color: Colors
+                                        .black), // Change text color to black
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.textFieldBg,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    height: 53,
-                    width: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(
-                            AppVectors.height,
-                          ),
-                          const SizedBox(width: 20),
-                          Expanded(
-                            child: TextField(
-                              controller:
-                                  _heightController, // Attach controller to TextField
-                              decoration: const InputDecoration(
-                                hintText: 'How Long',
-                                hintStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                    color: AppColors
-                                        .textColor, // Adjust text color as needed
-                                    fontFamily:
-                                        "Poppins"), // Optional: Change hint color
-                                border: InputBorder
-                                    .none, // Optional: Remove underline border
-                              ),
-                              style: const TextStyle(
-                                  color: Colors
-                                      .white), // Optional: Change text color
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.textFieldBg,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      height: 53,
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              AppVectors.height,
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: 20),
+                            Expanded(
+                              child: TextField(
+                                controller:
+                                    _heightController, // Attach controller to TextField
+                                decoration: const InputDecoration(
+                                  hintText: 'How Long',
+                                  hintStyle: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12,
+                                      color: AppColors
+                                          .textColor, // Adjust hint color as needed
+                                      fontFamily:
+                                          "Poppins"), // Optional: Change hint color
+                                  border: InputBorder
+                                      .none, // Optional: Remove underline border
+                                ),
+                                style: const TextStyle(
+                                    color: Colors
+                                        .black), // Change text color to black
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: CustomButton(
-                      text: "Next",
-                      function: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  HomeScreen(name: nameController.text)),
-                        );
-                      }),
-                )
-              ],
-            ),
-          )
-        ],
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: CustomButton(
+                        text: "Next",
+                        function: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    HomeScreen(name: nameController.text)),
+                          );
+                        }),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

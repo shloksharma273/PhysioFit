@@ -26,7 +26,7 @@ double y;
 double z;
 
 // Insert your network credentials
-#define WIFI_SSID "qwertyuiop"
+#define WIFI_SSID "Pixel_2039"
 #define WIFI_PASSWORD "12345678"
 
 // Insert Firebase project API Key
