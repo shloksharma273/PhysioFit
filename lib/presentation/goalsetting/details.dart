@@ -4,13 +4,8 @@ import 'package:physio_fit/core/config/theme/app_colors.dart';
 import 'package:physio_fit/core/config/theme/app_images.dart';
 import 'package:physio_fit/presentation/goalsetting/intro_slider.dart';
 import 'package:physio_fit/core/config/theme/globals.dart' as globals; // Import the globals file
-import 'package:flutter/material.dart';
-import 'package:physio_fit/core/common_widgets/custom_button.dart';
-import 'package:physio_fit/core/config/theme/app_colors.dart';
-import 'package:physio_fit/core/config/theme/app_images.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:physio_fit/core/config/theme/app_vectors.dart';
-import 'package:physio_fit/presentation/goalsetting/intro_slider.dart';
 
 class Details extends StatefulWidget {
   const Details({super.key});

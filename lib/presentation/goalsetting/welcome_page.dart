@@ -55,7 +55,12 @@ class WelcomePage extends StatelessWidget {
                 height: 150,
               ),
 
-              CustomButton(text: "Go To Home", function: (){})
+              CustomButton(text: "Go To Home", function: (){Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const WelcomePage(),
+                ),
+              );})
             ],
           ),
         ),
