@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:physio_fit/presentation/onboarding/finish.dart';
 import 'package:url_launcher/url_launcher.dart'; // For opening the video link
 
 class WorkoutDetailsPushup extends StatelessWidget {
@@ -124,9 +125,10 @@ class WorkoutDetailsPushup extends StatelessWidget {
               SizedBox(height: 16),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {
-                    // Add save functionality here
-                  },
+                  onPressed: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FinishPage()),
+                  );},
                   child: Text('Save'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
